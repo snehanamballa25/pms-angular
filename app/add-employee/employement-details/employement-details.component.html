@@ -1,0 +1,70 @@
+<div class="jumbotron">
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+    
+    <div class="form-row">
+        <div class=" col-md-4">
+            <label for="joining">Joining Date</label>
+            <input type="date" class="form-control" id="joining" formControlName="joiningDate">
+            <span *ngIf= "!employeeForm.get('joiningDate').valid && employeeForm.get('joiningDate').touched"
+    > Enter Valid Details</span>
+        </div>
+        <div class=" col-md-4">
+            <label for="location">Location</label>
+            <input type="text" class="form-control" id="location" formControlName="location">
+        </div>
+        <div class=" col-md-4">
+            <label for="grade">Grade</label>
+            <input type="number" class="form-control" id="grade" formControlName="grade">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-4">
+            <label for="salary">Salary</label>
+            <input type="text" class="form-control" id="salary" formControlName="salary">
+        </div>
+        <div class=" col-md-4">
+            <label for="experience">Previous Experience</label>
+            <input type="text" class="form-control" id="experience" formControlName="prevExperience">
+        </div>
+        <div class=" col-md-4">
+            <label for="prevcompany">Previous Company</label>
+            <input type="text" class="form-control" id="prevcompany" formControlName="prevCompany">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class=" col-md-4">            
+            <label for="manager">Reporting Manager</label>
+            <input type="text" class="form-control" id="manager" formControlName="manager">
+        </div>
+        <div class="col-md-4">
+            <label for="designation">Designation</label>
+            <input type="text" class="form-control" id="designation" formControlName="designation">
+        </div>
+        <div class=" col-md-4">
+            <label for="dept">Department</label>
+            <input type="text" class="form-control" id="dept" formControlName="dept">
+        </div>
+    </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!employeeForm.valid">Submit</button>
+</form>
+</div>
+<hr>
+
+<div  *ngIf="submitted">
+    <div class="row"><h4 class="text-center"> Your Entries:</h4></div>
+    <div class="row">
+    <div class="col-xs-12">
+        <p>Joining Date:{{UserData.JoiningDate}}</p>
+        <p>Location:{{UserData.Location}}</p>
+        <p>Grade:{{UserData.Grade}}</p>
+        <p>Salary:{{UserData.Salary}}</p>
+        <p>Previous Experience:{{UserData.PreviousExperience}}</p>
+        <p>Previous Company:{{UserData.PreviousCompany}}</p>
+        <p>Reporting Manager:{{UserData.ReportingManager}}</p>
+        <p>Designation:{{UserData.Designation}}</p>
+        <p>Department:{{UserData.Department}}</p>
+        </div>
+    </div>
+</div>
